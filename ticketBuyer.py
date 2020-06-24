@@ -26,16 +26,16 @@ class TicketBuyer:
         self.max_num = 0
         self.current_num = 0
 
+        # manually assign cookie value
         self.template_headers = {
             'authority': 'seat.shcstheatre.com',
             'method': 'POST',
-
             'scheme': 'https',
             'accept': 'application / json, text / javascript, * / *; q = 0.01',
             'accept-encoding': 'gzip, deflate, br',
             'accept-language': 'zh-CN,zh;q=0.9',
             'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-            'cookie': 'Hm_lvt_196f38093b37554c068aacf6ac0a83ca=1591666437,1591667971,1592295129,1592920443; token=0b41ae08-19c4-4ac5-80d0-4e0bea6b238f; Hm_lpvt_196f38093b37554c068aacf6ac0a83ca=1592928893; safety=20200624001457281|5C88877D9DAE731B123D2AA7D9DA66FD',
+            'cookie': '',
             'origin': 'https://seat.shcstheatre.com',
             'referer': 'https://seat.shcstheatre.com/SelectSeats.aspx',
             'sec-fetch-dest': 'empty',
@@ -46,12 +46,10 @@ class TicketBuyer:
             'x-requested-with': 'XMLHttpRequest'
         }
         self.urls = [
-            'https://seat.shcstheatre.com/SK_WebAPI.ashx?op=GetSelectSeats_EventList',
-            'https://seat.shcstheatre.com/SK_WebAPI.ashx?op=GetSeatsByID',
-            'https://seat.shcstheatre.com/SK_WebAPI.ashx?op=LockSeatsInsertShoppingCart'
+            
         ]
 
-        # eventID can be obtain by call "https://www.shcstheatre.com/webapi.ashx?op=Gettblprogram"
+        # eventID can be obtain by call ""
         if isTest:
             self.process(88431, 3)
         else:
